@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: sales
+    description: "Raw sales data from AdventureWorks transaction system"
+    database: AdventureWorks2022 # Optional if it matches your profile's default database
+    schema: Sales               # The SQL Server schema where the table resides
+    tables:
+      - name: Customer
+        description: "Customer demographic and account information."
+        columns:
+          - name: CustomerID
+            description: "Primary key for the customer record."
+            tests:
+              - unique
+              - not_null
+          - name: PersonID
+            description: "Foreign key to the Person table if applicable."
+          - name: StoreID
+            description: "Foreign key to the Store table if applicable."
+          - name: TerritoryID
+            description: "Foreign key to the SalesTerritory table."
